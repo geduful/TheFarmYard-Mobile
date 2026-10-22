@@ -1,16 +1,18 @@
 {
   "expo": {
-    "name": "TheFarmYard-mobile",
-    "slug": "TheFarmYard-mobile",
+    "name": "TheFarmYard",
+    "slug": "thefarmyard",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "thefarmyardmobile",
+    "scheme": "thefarmyard",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "package": "africa.thefarmyard.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
