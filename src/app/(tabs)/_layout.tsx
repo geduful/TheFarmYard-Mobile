@@ -1,4 +1,4 @@
-import { NativeTabs } from 'expo-router/native-tabs';
+import { NativeTabs } from 'expo-router/unstable-native-tabs';
 
 import { colors } from '@/constants/tokens';
 import { useDevRole } from '@/lib/dev-role';

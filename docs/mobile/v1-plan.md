@@ -64,7 +64,7 @@ Do not nest the Expo app inside the web repo, and do not convert the web repo in
 
 ### Setup
 
-Scaffolded with the SDK 58 default template. One housekeeping step before code:
+Scaffolded with the SDK 58 default template, then moved back to **SDK 57**: the target iPhone's Expo Go is 57, Expo Go runs exactly one SDK at a time, and rebuilding Expo Go for 58 requires a paid Apple Developer account. Revisit when the App Store build catches up. One housekeeping step before code:
 
 ```bash
 npm run reset-project    # answer "n" — deletes the demo screens
@@ -97,7 +97,7 @@ EAS refuses to build without `android.package`.
 
 ### Tab architecture
 
-`NativeTabs` from `expo-router/native-tabs` — stable in SDK 58, renders a real Material tab bar on Android. Use the `md` prop with Material Symbol names for icons; don't ship per-tab PNGs.
+`NativeTabs` from `expo-router/unstable-native-tabs` — stable API, but SDK 57 still keeps it behind the `unstable-` subpath (SDK 58 promotes it to `expo-router/native-tabs`). Renders a real native tab bar on both platforms. Use the `md` prop with Material Symbol names on Android; don't ship per-tab PNGs.
 
 ```
 src/app/
