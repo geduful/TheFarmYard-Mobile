@@ -8,7 +8,9 @@
     "scheme": "thefarmyard",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "africa.thefarmyard.app",
+      "supportsTablet": false
     },
     "android": {
       "package": "africa.thefarmyard.app",
