@@ -5,8 +5,8 @@ export default function RequestsScreen() {
   return (
     <Screen>
       <Text variant="title">Requests</Text>
-      <Text tone="muted" style={{ marginTop: 4 }}>
-        Buy requests you have posted, and the offers farmers make on them.
+      <Text tone="muted" style={{ marginTop: 6 }}>
+        Buyer requests will appear here.
       </Text>
     </Screen>
   );

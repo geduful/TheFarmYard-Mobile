@@ -1,19 +1,46 @@
-import { StyleSheet, Text as RNText, type TextProps as RNTextProps } from 'react-native';
+import {
+  StyleSheet,
+  Text as RNText,
+  type TextProps as RNTextProps,
+} from 'react-native';
 
 import { colors, fontSize } from '@/constants/tokens';
 
-type Variant = 'hero' | 'title' | 'subtitle' | 'body' | 'caption';
-type Tone = 'default' | 'muted' | 'inverse' | 'danger' | 'success';
+type Variant =
+  | 'display'
+  | 'hero'
+  | 'title'
+  | 'subtitle'
+  | 'body'
+  | 'caption';
+
+type Tone =
+  | 'default'
+  | 'secondary'
+  | 'muted'
+  | 'inverse'
+  | 'danger'
+  | 'success';
 
 export type TextProps = RNTextProps & {
   variant?: Variant;
   tone?: Tone;
 };
 
-export function Text({ variant = 'body', tone = 'default', style, ...rest }: TextProps) {
+export function Text({
+  variant = 'body',
+  tone = 'default',
+  style,
+  ...rest
+}: TextProps) {
   return (
     <RNText
-      style={[styles.base, variantStyles[variant], toneStyles[tone], style]}
+      style={[
+        styles.base,
+        variantStyles[variant],
+        toneStyles[tone],
+        style,
+      ]}
       {...rest}
     />
   );
@@ -24,14 +51,44 @@ const styles = StyleSheet.create({
     fontSize: fontSize.body,
     color: colors.text,
   },
-  hero: { fontSize: fontSize.hero, fontWeight: '700', lineHeight: 34 },
-  title: { fontSize: fontSize.title, fontWeight: '600', lineHeight: 26 },
-  subtitle: { fontSize: fontSize.subtitle, fontWeight: '600', lineHeight: 22 },
-  body: { fontSize: fontSize.body, lineHeight: 20 },
-  caption: { fontSize: fontSize.caption, lineHeight: 16 },
+
+  display: {
+    fontSize: fontSize.display,
+    lineHeight: 40,
+    fontWeight: '700',
+  },
+
+  hero: {
+    fontSize: fontSize.hero,
+    lineHeight: 36,
+    fontWeight: '700',
+  },
+
+  title: {
+    fontSize: fontSize.title,
+    lineHeight: 28,
+    fontWeight: '700',
+  },
+
+  subtitle: {
+    fontSize: fontSize.subtitle,
+    lineHeight: 22,
+    fontWeight: '600',
+  },
+
+  body: {
+    fontSize: fontSize.body,
+    lineHeight: 21,
+  },
+
+  caption: {
+    fontSize: fontSize.caption,
+    lineHeight: 16,
+  },
 });
 
 const variantStyles: Record<Variant, object> = {
+  display: styles.display,
   hero: styles.hero,
   title: styles.title,
   subtitle: styles.subtitle,
@@ -41,8 +98,9 @@ const variantStyles: Record<Variant, object> = {
 
 const toneStyles: Record<Tone, object> = {
   default: { color: colors.text },
+  secondary: { color: colors.textSecondary },
   muted: { color: colors.muted },
   inverse: { color: colors.white },
-  danger: { color: colors.alertRed },
+  danger: { color: colors.danger },
   success: { color: colors.emerald },
 };

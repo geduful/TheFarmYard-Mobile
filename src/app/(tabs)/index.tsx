@@ -1,18 +1,33 @@
-import { Screen } from '@/components/ui/screen';
-import { Text } from '@/components/ui/text';
-import { useDevRole } from '@/lib/dev-role';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
-  const isFarmer = useDevRole() === 'farmer';
-
   return (
-    <Screen>
-      <Text variant="title">{isFarmer ? 'Dashboard' : 'Marketplace'}</Text>
-      <Text tone="muted" style={{ marginTop: 4 }}>
-        {isFarmer
-          ? 'Active orders, payouts and verification status will live here.'
-          : 'Browse and search listings here.'}
+    <View style={styles.container}>
+      <Text style={styles.title}>TheFarmYard</Text>
+      <Text style={styles.subtitle}>
+        Tabs are rendering correctly.
       </Text>
-    </Screen>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  title: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#111111',
+  },
+
+  subtitle: {
+    marginTop: 8,
+    fontSize: 16,
+    color: '#666666',
+  },
+});
