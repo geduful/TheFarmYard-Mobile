@@ -1,33 +1,43 @@
 export const colors = {
-  farmGreen: '#1E4620',
-  farmGreenLight: '#2D6A30',
-  farmGreenDark: '#143015',
+  farmGreen: '#174D24',
+  farmGreenLight: '#2F6B37',
+  farmGreenDark: '#103719',
 
   earth: '#8B6914',
   earthLight: '#A0782C',
 
-  cream: '#FCFBF9',
-  creamDark: '#F1ECE2',
+  cream: '#FAF7F1',
+  creamDark: '#EFEADF',
 
-  background: '#FCFBF9',
+  background: '#F7FAF5',
   surface: '#FFFFFF',
-  surfaceMuted: '#F7F5F1',
+  surfaceMuted: '#F2F6F0',
 
-  text: '#111111',
-  textSecondary: '#4B5563',
-  muted: '#7A7A75',
+  text: '#142016',
+  textSecondary: '#46544A',
+  muted: '#6C7A6E',
 
-  border: '#E8E4DC',
-  borderStrong: '#D8D1C5',
+  border: '#E1E9DF',
+  borderStrong: '#CFDCCA',
+
+  mint: '#EBF4E8',
+  mintStrong: '#D9E9D4',
 
   emerald: '#059669',
   emeraldLight: '#10B981',
+  successSoft: '#ECFDF5',
+  successBorder: '#A7F3D0',
 
   warning: '#D97706',
   danger: '#DC2626',
+  dangerSoft: '#FEF2F2',
+  dangerBorder: '#FECACA',
 
   white: '#FFFFFF',
   black: '#000000',
+
+  onDarkMuted: 'rgba(255, 255, 255, 0.80)',
+  onDarkSubtle: 'rgba(255, 255, 255, 0.62)',
 } as const;
 
 export const spacing = {

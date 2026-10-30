@@ -60,13 +60,13 @@ export function Button({
 
 const styles = StyleSheet.create({
   base: {
-    minHeight: 48,
-    borderRadius: radius.md,
+    minHeight: 54,
+    borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: spacing.lg,
   },
-  label: { fontWeight: '600' },
+  label: { fontWeight: '700' },
   pressed: { opacity: 0.85 },
   disabled: { opacity: 0.5 },
 });

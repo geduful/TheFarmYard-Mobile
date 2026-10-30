@@ -10,7 +10,10 @@
     "ios": {
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "africa.thefarmyard.app",
-      "supportsTablet": false
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "africa.thefarmyard.app",
@@ -32,9 +35,10 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#F7F9F5",
+          "image": "./assets/branding/thefarmyard-logo.png",
+          "imageWidth": 200,
+          "resizeMode": "contain"
         }
       ],
       "expo-font",

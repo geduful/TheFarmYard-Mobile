@@ -1,31 +1,78 @@
+import type { ComponentProps } from 'react';
 import { Tabs } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors } from '@/constants/tokens';
+import { colors, radius, spacing } from '@/constants/tokens';
 
-export default function TabLayout() {
+type IoniconName = ComponentProps<typeof Ionicons>['name'];
+
+const TAB_BAR_CONTENT_HEIGHT = 60;
+
+function TabIcon({
+  focused,
+  iconName,
+}: {
+  focused: boolean;
+  iconName: IoniconName;
+}) {
+  return (
+    <View
+      style={[
+        styles.iconMark,
+        focused && styles.iconMarkActive,
+      ]}
+    >
+      <Ionicons
+        name={iconName}
+        size={23}
+        color={focused ? colors.farmGreen : colors.textSecondary}
+      />
+    </View>
+  );
+}
+
+export default function BuyerTabLayout() {
+  const insets = useSafeAreaInsets();
+
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+
+        tabBarHideOnKeyboard: true,
+
         tabBarActiveTintColor: colors.farmGreen,
-        tabBarInactiveTintColor: colors.muted,
-        tabBarStyle: {
-          backgroundColor: colors.background,
-          borderTopColor: colors.border,
-          height: 64,
-          paddingBottom: 8,
-          paddingTop: 8,
-        },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: '600',
-        },
+
+        tabBarInactiveTintColor: colors.textSecondary,
+
+        tabBarStyle: [
+          styles.tabBar,
+          {
+            height:
+              TAB_BAR_CONTENT_HEIGHT + insets.bottom,
+
+            paddingBottom: insets.bottom,
+          },
+        ],
+
+        tabBarLabelStyle: styles.tabLabel,
+
+        tabBarIconStyle: styles.tabIconStyle,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
+
+          tabBarIcon: ({ focused }) => (
+            <TabIcon
+              focused={focused}
+              iconName={focused ? 'home' : 'home-outline'}
+            />
+          ),
         }}
       />
 
@@ -33,6 +80,13 @@ export default function TabLayout() {
         name="listings"
         options={{
           title: 'Market',
+
+          tabBarIcon: ({ focused }) => (
+            <TabIcon
+              focused={focused}
+              iconName={focused ? 'bag' : 'bag-outline'}
+            />
+          ),
         }}
       />
 
@@ -40,6 +94,13 @@ export default function TabLayout() {
         name="requests"
         options={{
           title: 'Requests',
+
+          tabBarIcon: ({ focused }) => (
+            <TabIcon
+              focused={focused}
+              iconName={focused ? 'clipboard' : 'clipboard-outline'}
+            />
+          ),
         }}
       />
 
@@ -47,8 +108,57 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: 'Profile',
+
+          tabBarIcon: ({ focused }) => (
+            <TabIcon
+              focused={focused}
+              iconName={focused ? 'person' : 'person-outline'}
+            />
+          ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBar: {
+    paddingTop: spacing.xs,
+
+    paddingHorizontal: spacing.sm,
+
+    backgroundColor: colors.surface,
+
+    borderTopWidth: 1,
+
+    borderTopColor: colors.border,
+  },
+
+  tabIconStyle: {
+    marginTop: 2,
+  },
+
+  iconMark: {
+    width: 44,
+
+    height: 28,
+
+    borderRadius: radius.pill,
+
+    alignItems: 'center',
+
+    justifyContent: 'center',
+  },
+
+  iconMarkActive: {
+    backgroundColor: colors.mint,
+  },
+
+  tabLabel: {
+    fontSize: 11,
+
+    fontWeight: '600',
+
+    marginTop: 2,
+  },
+});
